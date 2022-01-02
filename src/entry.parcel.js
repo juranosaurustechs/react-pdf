@@ -12,10 +12,6 @@ if (isLocalFileSystem) {
 }
 
 if (typeof window !== 'undefined' && 'Worker' in window) {
-  pdfjs.GlobalWorkerOptions.workerPort = new Worker('./pdf.worker.entry.js');
-}
-
-if (typeof window !== 'undefined' && 'Worker' in window) {
   pdfjs.GlobalWorkerOptions.workerPort = new Worker(
     new URL('./pdf.worker.entry.js', import.meta.url),
     { type: 'module' },
